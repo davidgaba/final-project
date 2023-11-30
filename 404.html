@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Error 404 Page Not Found - COMP2132</title>
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+
+    <link rel="stylesheet" href="/css/404_style.css">
+
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Error 404: Page Not Found</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Partners</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h2>Oh, dear!</h2>
+            <img src="/images/error-404.webp" alt="Error 404: Page Not Found" />
+            <p>The page you are looking for cannot be found!</p>
+            <p class='good'>Include a prominent explanation of the <strong>page not found</strong> status.</p>
+            <p class='good'>Maybe provide an amusing graphic to reduce the unpleasant nature of a page-not-found user
+                experience.</p>
+            <p class='good'>Be sure a 404 page includes a full site navigation bar (with links to pages that
+                <strong>will</strong> be found)!
+            </p>
+            <p>Locate this <code>404.html</code> file in your server root folder.</p>
+            <p>Use server root paths for this page's relative paths (paths for CSS, images, etc).</p>
+            <p>Use <code>.htaccess</code> to implement error handling for Page Not Found.</p>
+
+            <pre><code>#to affect the entire site, place .htaccess file 
+#in the server root directory
+#add error handling in the .htaccess file, eg:
+
+ErrorDocument 404 /root-based-path/to/404.html</code></pre>
+            <p>Place the <code>.htaccess</code> file in your server root folder.</p>
+            <p>Trigger a 404 error by making a request over <code>http://</code> using your locahost server for a file
+                or folder that does not exist in your server root.</p>
+            <p class='important'>This page should never be explicitly requested by name. This page should only be a
+                server response when an actual error 404 'page not found' occurs, and the <code>.htaccess</code> has
+                redirected the user agent to this page.</p>
+            <p>Image Credit: <a href="https://www.freepik.com">freepik.com</a></p>
+
+        </main>
+        <footer>
+            <p>Copyleft 20** <span>&copy;</span> - COMP2132</p>
+        </footer>
+    </div>
+</body>
+
+</html>

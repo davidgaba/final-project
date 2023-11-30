@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project | COMP2132 - Web Development w/ JavaScript</title>
+
+    <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
+    <link rel="icon" href="favicon/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="favicon/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="scripts/final_project.js" defer></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <div>
+                <h1>Dice Game</h1>
+                <button type="button" id="menu-btn">Menu</button>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#info">Project Info</a></li>
+                <li><a href="#rules">Rules</a></li>
+                <li><a href="#game">Dice Game</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="info">
+                <p><span>Objective: </span>Implement a Javascript web application game for the web browser. </p>
+                <p><span>Due Date: </span>Assigned during session10, due 11:59pm the night before session12.</p>
+                <p><span>Requirements: </span>You may team up with one other classmate for this project, or you may
+                    complete it yourself.
+                    Include a prominent heading in the HTML indicating who the author(s) are.</p>
+                <p>Select <span>ONE</span> of the following two options to implement:
+                </p>
+                <ul>
+                    <li>Dice game (easier)</li>
+                    <li> Hangman game (harder)</li>
+                </ul>
+                <p>The dice game will be easier to code, the hangman game will be more challenging. Both of them
+                    will be marked the same., so make your choice according to your strength with Javascript.</p>
+            </section>
+
+            <section id="rules">
+                <h2>Game Rules</h2>
+                <p>The user and the computer each
+                    roll a pair of dice 3 times. After the third roll of the dice the player with highest score wins</p>
+                <p>The scoring for the game works as follows:</p>
+                <ul>
+                    <li>If any of the players two dice comes up as a 1 then the score for that round for the player
+                        is 0. eg: if the player rolls a 6 and 1, they get a score of 0
+                    </li>
+                    <li>If the player rolls a pair of the same numbers then the players score is the total of the
+                        two dice times 2. eg: if he player rolls 5 and 5, they get a score of (5+5)*2=20
+                    </li>
+                    <li>If the player rolls any other combination of dice other than the ones mentioned above
+                        then the players score is the total value of the two dice, eg: player rolls a 3 and 2, player
+                        gets a score of 3+2=5
+                    </li>
+                </ul>
+            </section>
+
+            <section id="game">
+                <h2>Play a Game!</h2>
+                <div id="game-container">
+                    <section class="game-section" id="player-container">
+                        <div class="profile-header">
+                            <h3>You</h3>
+                            <img class="icon" src="images/person-icon.jpg" alt="Profile icon">
+                        </div>
+                        <div class="dice-container">
+                            <img id="player-dice-1" class="dice" src="images/dice-1.png" alt="Image of dice">
+                            <img id="player-dice-2" class="dice" src="images/dice-1.png" alt="Image of dice">
+                        </div>
+                    </section>
+
+                    <section class="game-section" id="computer-container">
+                        <div class="profile-header">
+                            <h3>Opponent</h3>
+                            <img class="icon" src="images/robot-icon.jpg" alt="Robot icon">
+                        </div>
+
+                        <div class="dice-container">
+                            <img id="computer-dice-1" class="dice" src="images/dice-1.png" alt="Image of dice">
+                            <img id="computer-dice-2" class="dice" src="images/dice-1.png" alt="Image of dice">
+                        </div>
+                    </section>
+
+                    <section class="game-section" id="summary-container">
+                        <h3>Game Summary</h3>
+                        <div id="score-table">
+                            <div id="table-container">
+                                <p id="round-1" class="round-header">Round 1</p>
+                                <p id="player-header">You</p>
+                                <p id="computer-header">Computer</p>
+                                <p id="you-score-1" class="player-score"></p>
+                                <div id="player-dice-history-1" class="dice-history"></div>
+                                <p id="computer-score-1" class="computer-score"></p>
+                                <div id="computer-dice-history-1" class="dice-history"></div>
+                                <p id="round-2" class="round-header">Round 2</p>
+                                <p id="you-score-2" class="player-score"></p>
+                                <div id="player-dice-history-2" class="dice-history"></div>
+                                <p id="computer-score-2" class="computer-score"></p>
+                                <div id="computer-dice-history-2" class="dice-history">
+                                </div>
+                                <p id="round-3" class="round-header">Round 3</p>
+                                <p id="you-score-3" class="player-score"></p>
+                                <div id="player-dice-history-3" class="dice-history"></div>
+                                <p id="computer-score-3" class="computer-score"></p>
+                                <div id="computer-dice-history-3" class="dice-history">
+                                </div>
+                                <p id="total-header">Total</p>
+                                <p id="player-total">0</p>
+                                <p id="computer-total">0</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div type="button" id="game-controls-container">
+                        <button id="new-game" class="game-controls">New Game</button>
+                        <button type="button" id="roll-dice" class="game-controls">Roll Dice</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div id="results-container">
+            <button type="button" id="close-btn">X</button>
+            <div id="results-prompt">
+                <div id="results-div"></div>
+            </div>
+        </div>
+
+        <footer>
+            <small>
+                Copyleft &copy; 2023. Job David Gaba. COMP2132 - Web Development with JavaScript. All left reserved.
+            </small>
+        </footer>
+    </div>
+</body>
+
+</html>
